@@ -190,7 +190,7 @@ public class Mnemonics {
 
         var bitString = ""
         for word in wordList {
-            guard let idx = language.words.index(of: word) else { throw EntropyError.wordNotFound(word) }
+            guard let idx = language.words.firstIndex(of: word) else { throw EntropyError.wordNotFound(word) }
             let idxAsInt = language.words.startIndex.distance(to: idx)
             let stringForm = String(UInt16(idxAsInt), radix: 2).leftPadding(toLength: 11, withPad: "0")
             bitString.append(stringForm)

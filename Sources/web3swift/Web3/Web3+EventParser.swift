@@ -22,7 +22,7 @@ extension Web3Contract {
         var web3: Web3
         /// Init with event and contract. Returns nil if contract doesn't have that method
         public init? (web3 web3Instance: Web3, eventName: String, contract: ContractProtocol, filter: EventFilter? = nil) {
-            guard let _ = contract.allEvents.index(of: eventName) else { return nil }
+            guard let _ = contract.allEvents.firstIndex(of: eventName) else { return nil }
             self.eventName = eventName
             web3 = web3Instance
             self.contract = contract

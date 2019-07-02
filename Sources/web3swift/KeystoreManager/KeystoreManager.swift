@@ -70,7 +70,7 @@ public class KeystoreManager: AbstractKeystore {
     ///   - suffix: File suffix
     /// - Returns: Keystore manager with found keystores
     public static func managerForPath(_ path: String, scanForHDwallets: Bool = false, suffix: String? = nil) -> KeystoreManager? {
-        guard let newManager = try? KeystoreManager(path, scanForHDwallets: scanForHDwallets, suffix: suffix), let manager = newManager else { return nil }
+        guard let newManager = ((try? KeystoreManager(path, scanForHDwallets: scanForHDwallets, suffix: suffix)) as KeystoreManager??), let manager = newManager else { return nil }
         return manager
     }
     

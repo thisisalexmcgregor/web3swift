@@ -161,39 +161,39 @@ public struct JsonRpcResponse: Decodable {
         }
         var result: Any?
         
-        if let rawValue = try? container.decodeIfPresent(String.self, forKey: .result) {
+        if let rawValue = ((try? container.decodeIfPresent(String.self, forKey: .result)) as String??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent(Int.self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent(Int.self, forKey: .result)) as Int??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent(Bool.self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent(Bool.self, forKey: .result)) as Bool??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent(EventLog.self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent(EventLog.self, forKey: .result)) as EventLog??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent(Block.self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent(Block.self, forKey: .result)) as Block??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent(TransactionReceipt.self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent(TransactionReceipt.self, forKey: .result)) as TransactionReceipt??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent(TransactionDetails.self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent(TransactionDetails.self, forKey: .result)) as TransactionDetails??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([EventLog].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([EventLog].self, forKey: .result)) as [EventLog]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([Block].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([Block].self, forKey: .result)) as [Block]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([TransactionReceipt].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([TransactionReceipt].self, forKey: .result)) as [TransactionReceipt]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([TransactionDetails].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([TransactionDetails].self, forKey: .result)) as [TransactionDetails]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([Bool].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([Bool].self, forKey: .result)) as [Bool]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([Int].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([Int].self, forKey: .result)) as [Int]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([String].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([String].self, forKey: .result)) as [String]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([String: String].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([String: String].self, forKey: .result)) as [String : String]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([String: Int].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([String: Int].self, forKey: .result)) as [String : Int]??) {
             result = rawValue
-        } else if let rawValue = try? container.decodeIfPresent([String: Any].self, forKey: .result) {
+        } else if let rawValue = ((try? container.decodeIfPresent([String: Any].self, forKey: .result)) as Dictionary<String, Any>??) {
             result = rawValue
         }
         self.init(id: id, jsonrpc: jsonrpc, result: result, error: nil)
