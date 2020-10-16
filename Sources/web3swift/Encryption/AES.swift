@@ -150,7 +150,8 @@ struct AES128 {
             try CCCryptorUpdate(cryptor, encryptedBytes, input.count, &outBytes, outBytes.count, &outLength).check()
         }
         length += outLength
-        try CCCryptorFinal(cryptor, &outBytes + outLength, outBytes.count, &outLength).check()
+        try CCCryptorFinal(cryptor, UnsafeMutableRawPointer(&outBytes + outLength), outBytes.count, &outLength).check()
+
         length += outLength
         
         return Data(bytes: UnsafePointer<UInt8>(outBytes), count: length)
