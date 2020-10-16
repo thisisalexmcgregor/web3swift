@@ -151,12 +151,7 @@ struct AES128 {
         }
         length += outLength
         let initialOutLength = outLength
-        try CCCryptorFinal(
-            cryptor,
-            outBytes.withUnsafeMutableBytes { $0.baseAddress?.advanced(by: initialOutLength) },
-            outBytes.count,
-            &outLength
-        ).check()
+        try CCCryptorFinal(cryptor, UnsafeMutableRawPointer(&outBytes + outLength), outBytes.count, &outLength).check()
 
         length += outLength
         
